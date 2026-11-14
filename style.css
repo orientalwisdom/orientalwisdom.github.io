@@ -237,6 +237,39 @@ h6 {
 .bg-grey {
 	background-color: #fafafa;
 }
+/* Navbar language toggle */
+.lang-item {
+	display: flex;
+	align-items: center;
+	margin-left: 15px;
+}
+.lang-toggle {
+	display: inline-flex;
+	background: rgba(255, 255, 255, 0.92);
+	border: 1px solid #ffaf53;
+	border-radius: 20px;
+	padding: 3px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+.lang-toggle button {
+	border: 0;
+	background: transparent;
+	color: #3b2314;
+	font-family: "Poppins", sans-serif;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1;
+	padding: 7px 14px;
+	border-radius: 16px;
+	cursor: pointer;
+}
+.lang-toggle button[aria-pressed="true"] {
+	background: #ffaf53;
+}
+.lang-toggle button:focus-visible {
+	outline: 2px solid #ab2f52;
+	outline-offset: 2px;
+}
 .bg-white {
 	background: #ffffff;
 }
