@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1086" height="1448" viewBox="0 0 1086 1448">
+  <style id="fonts">@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&amp;family=Noto+Serif+TC:wght@900&amp;family=Nunito+Sans:wght@800&amp;display=swap');</style>
+  <style>
+    text { font-family: 'Noto Sans TC', sans-serif; fill: #3b2314; }
+    .accent { fill: #d9821f; }
+    .muted { fill: #6b5a4e; }
+    .serif { font-family: 'Noto Serif TC', serif; }
+    .num { font-family: 'Nunito Sans', sans-serif; }
+  </style>
+  <defs>
+    <linearGradient id="fade" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#fffaf4" stop-opacity="1"/>
+      <stop offset="0.45" stop-color="#fffaf4" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#fffaf4" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1086" height="1448" fill="#fffaf4"/>
+
+  <!-- Portrait -->
+  <svg x="360" y="0" width="726" height="600" viewBox="0 0 726 600">
+    <image href="../images/doctor.jpg" x="0" y="-370" width="726" height="1056" preserveAspectRatio="none"/>
+  </svg>
+  <rect x="360" y="0" width="360" height="600" fill="url(#fade)"/>
+  <path d="M0,566 C300,520 700,650 1086,548 L1086,620 L0,620 Z" fill="#fffaf4"/>
+  <path d="M0,566 C300,520 700,650 1086,548" fill="none" stroke="#ffaf53" stroke-width="4"/>
+
+  <!-- Heading block -->
+  <text x="64" y="138" font-size="76" font-weight="900" class="accent">傳統中醫</text>
+  <text x="64" y="196" font-size="34" font-weight="700" class="accent" letter-spacing="4">中醫 · 針灸 · 中藥</text>
+  <text x="64" y="304" font-size="92" font-weight="900">游泰隆<tspan font-size="48" font-weight="700" dx="10">醫師</tspan></text>
+  <rect x="64" y="338" width="320" height="58" rx="29" fill="#ffaf53"/>
+  <text x="224" y="377" font-size="30" font-weight="700" text-anchor="middle" letter-spacing="3">加州執照針灸醫師</text>
+  <text x="64" y="456" font-size="30" font-weight="500" class="muted" letter-spacing="2">數十年臨床經驗</text>
+
+  <!-- Intro -->
+  <text font-size="26" font-weight="500">
+    <tspan x="64" y="668">我是加州執照針灸醫師游泰隆，擁有數十年的臨床經驗。</tspan>
+    <tspan x="64" y="712">疼痛的發生常代表身體健康出現問題，並伴隨身心的痛苦。</tspan>
+    <tspan x="64" y="756">我的專長是運用中醫針灸與中藥，從根本調理、緩解疼痛、</tspan>
+    <tspan x="64" y="800">改善功能，幫助患者恢復健康與生活品質。</tspan>
+  </text>
+
+  <!-- Conditions -->
+  <rect x="56" y="842" width="8" height="46" rx="2" fill="#ffaf53"/>
+  <text x="82" y="880" font-size="38" font-weight="900">專長診療項目</text>
+  <rect x="34" y="912" width="1018" height="380" rx="22" fill="#ffffff" stroke="#f3e3d1" stroke-width="2"/>
+  <line x1="543" y1="940" x2="543" y2="1266" stroke="#f0dcc6" stroke-width="2"/>
+  <g fill="#ffaf53">
+    <circle cx="72" cy="952" r="6"/><circle cx="72" cy="990" r="6"/><circle cx="72" cy="1028" r="6"/>
+    <circle cx="72" cy="1066" r="6"/><circle cx="72" cy="1104" r="6"/><circle cx="72" cy="1142" r="6"/>
+    <circle cx="72" cy="1180" r="6"/><circle cx="72" cy="1218" r="6"/><circle cx="72" cy="1256" r="6"/>
+    <circle cx="578" cy="952" r="6"/><circle cx="578" cy="990" r="6"/><circle cx="578" cy="1028" r="6"/>
+    <circle cx="578" cy="1066" r="6"/><circle cx="578" cy="1104" r="6"/><circle cx="578" cy="1142" r="6"/>
+    <circle cx="578" cy="1180" r="6"/><circle cx="578" cy="1218" r="6"/>
+  </g>
+  <text font-size="22" font-weight="500">
+    <tspan x="92" y="960">頭痛（含偏頭痛）</tspan>
+    <tspan x="92" y="998">頸肩痛及手麻、五十肩</tspan>
+    <tspan x="92" y="1036">腰痛（含椎間盤突出、退化性關節炎）</tspan>
+    <tspan x="92" y="1074">膝關節疼痛</tspan>
+    <tspan x="92" y="1112">坐骨神經痛</tspan>
+    <tspan x="92" y="1150">面癱（顏面神經麻痺）</tspan>
+    <tspan x="92" y="1188">板機指、媽媽手、腕管綜合症</tspan>
+    <tspan x="92" y="1226">足底痛、足底筋膜炎</tspan>
+    <tspan x="92" y="1264">抽筋</tspan>
+    <tspan x="598" y="960">顳顎關節疼痛（咬合痛、張口受限）</tspan>
+    <tspan x="598" y="998">過敏性鼻炎</tspan>
+    <tspan x="598" y="1036">不孕症（調理月經、提升受孕機會）</tspan>
+    <tspan x="598" y="1074">月經痛（經痛、月經不調）</tspan>
+    <tspan x="598" y="1112">水腫（雙足水腫）</tspan>
+    <tspan x="598" y="1150">焦慮、憂鬱（情緒壓力、肝氣不舒）</tspan>
+    <tspan x="598" y="1188">失眠（入睡困難、睡眠淺、易醒）</tspan>
+    <tspan x="598" y="1226">化療、放療後的副作用<tspan font-size="16">（減輕不適、提升生活品質）</tspan></tspan>
+  </text>
+
+  <!-- Footer -->
+  <path d="M0,1338 C300,1300 700,1376 1086,1316 L1086,1448 L0,1448 Z" fill="#ffaf53"/>
+  <image href="../images/logo-white.png" x="60" y="1352" width="84" height="84"/>
+  <text x="166" y="1414" font-size="48" class="serif" letter-spacing="6">茗仁中醫</text>
+  <line x1="566" y1="1364" x2="566" y2="1432" stroke="#3b2314" stroke-opacity="0.35" stroke-width="2"/>
+  <circle cx="626" cy="1398" r="30" fill="#3b2314"/>
+  <path transform="translate(608 1380) scale(1.5)" fill="#ffaf53" d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+  <text x="674" y="1382" font-size="24" font-weight="700" letter-spacing="2">預約諮詢</text>
+  <text x="674" y="1428" font-size="44" font-weight="800" class="num">626-285-7588</text>
+</svg>

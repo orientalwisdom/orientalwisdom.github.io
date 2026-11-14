@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rendering...</title>
+<style>
+  body { font: 14px/1.4 system-ui, sans-serif; margin: 16px; background: #f4f1ec; color: #222; }
+  #log { white-space: pre-wrap; font-family: ui-monospace, Consolas, monospace; font-size: 12px;
+         background: #fff; border: 1px solid #ddd; padding: 8px; max-height: 240px; overflow: auto; }
+  #result img { max-width: 100%; height: auto; border: 1px solid #ccc; margin-top: 12px; background: #fff; }
+  .err { color: #b00020; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1 style="font-size:18px;margin:0 0 8px">SVG poster renderer</h1>
+<div>Usage: <code>/posters/render.html?svg=tyrone-yu-en.svg&amp;out=images/flyer-tyrone-yu-en.jpg&amp;scale=1.5&amp;q=0.92</code></div>
+<div id="log"></div>
+<div id="result"></div>
+<script>
+(function () {
+  'use strict';
+  var SVG_NS = 'http://www.w3.org/2000/svg';
+  var XLINK_NS = 'http://www.w3.org/1999/xlink';
+  var logEl = document.getElementById('log');
+  var resultEl = document.getElementById('result');
+  window.renderResult = null;
+
+  function log(msg) {
+    logEl.textContent += msg + '\n';
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  function blobToDataURL(blob, mimeOverride) {
+    return new Promise(function (resolve, reject) {
+      var b = blob;
+      if (mimeOverride && blob.type !== mimeOverride) b = new Blob([blob], { type: mimeOverride });
+      var fr = new FileReader();
+      fr.onload = function () { resolve(fr.result); };
+      fr.onerror = function () { reject(fr.error || new Error('FileReader failed')); };
+      fr.readAsDataURL(b);
+    });
+  }
+
+  async function fetchOk(url, what) {
+    var res;
+    try { res = await fetch(url, { cache: 'no-store' }); }
+    catch (e) { throw new Error('fetch failed for ' + what + ' (' + url + '): ' + e.message); }
+    if (!res.ok) throw new Error('HTTP ' + res.status + ' for ' + what + ' (' + url + ')');
+    return res;
+  }
+
+  function guessMime(url, formatHint, blobType) {
+    if (blobType && blobType !== 'application/octet-stream' && blobType.indexOf('text/') !== 0) return blobType;
+    var s = ((formatHint || '') + ' ' + url).toLowerCase();
+    if (s.indexOf('woff2') >= 0) return 'font/woff2';
+    if (s.indexOf('woff') >= 0) return 'font/woff';
+    if (s.indexOf('opentype') >= 0 || /\.otf\b/.test(s)) return 'font/otf';
+    if (s.indexOf('truetype') >= 0 || /\.ttf\b/.test(s)) return 'font/ttf';
+    if (/\.png\b/.test(s)) return 'image/png';
+    if (/\.jpe?g\b/.test(s)) return 'image/jpeg';
+    if (/\.svg\b/.test(s)) return 'image/svg+xml';
+    if (/\.gif\b/.test(s)) return 'image/gif';
+    if (/\.webp\b/.test(s)) return 'image/webp';
+    return blobType || 'application/octet-stream';
+  }
+
+  function decodeEntities(s) {
+    return s.replace(/&amp;/g, '&').replace(/&#38;/g, '&').replace(/&#x26;/gi, '&');
+  }
+
+  // Collect all unique characters from <text> content (tspans included).
+  function uniqueTextChars(doc) {
+    var texts = doc.getElementsByTagNameNS(SVG_NS, 'text');
+    var all = '';
+    for (var i = 0; i < texts.length; i++) all += texts[i].textContent;
+    var set = new Set();
+    Array.from(all).forEach(function (ch) {
+      if (ch === ' ' || !/\s/.test(ch)) set.add(ch);
+    });
+    return Array.from(set).join('');
+  }
+
+  // Replace @import of Google Fonts in style#fonts with inlined @font-face rules.
+  async function inlineFonts(doc) {
+    var styles = doc.getElementsByTagNameNS(SVG_NS, 'style');
+    var styleEl = null;
+    for (var i = 0; i < styles.length; i++) {
+      if (styles[i].getAttribute('id') === 'fonts') { styleEl = styles[i]; break; }
+    }
+    if (!styleEl) { log('No style#fonts found; skipping font inlining.'); return; }
+    var css = styleEl.textContent;
+    var importRe = /@import\s+(?:url\(\s*(['"]?)([^'")]+)\1\s*\)|(['"])([^'"]+)\3)[^;]*;?/;
+    var m = css.match(importRe);
+    if (!m) { log('No @import in style#fonts; skipping font inlining.'); return; }
+    var importUrl = decodeEntities(m[2] || m[4]).trim();
+    var chars = uniqueTextChars(doc);
+    var cssUrl = importUrl + (importUrl.indexOf('?') >= 0 ? '&' : '?') + 'text=' + encodeURIComponent(chars);
+    log('Font chars: ' + Array.from(chars).length + ' unique');
+    log('Fetching font CSS (' + cssUrl.length + ' char URL)');
+    var fontCss = await (await fetchOk(cssUrl, 'Google Fonts CSS')).text();
+
+    var urlRe = /url\(\s*(['"]?)([^'")]+)\1\s*\)(\s*format\(\s*['"]?([^'")]+)['"]?\s*\))?/g;
+    var found = [];
+    var mm;
+    while ((mm = urlRe.exec(fontCss)) !== null) {
+      if (mm[2].indexOf('data:') === 0) continue;
+      if (!found.some(function (f) { return f.url === mm[2]; })) found.push({ url: mm[2], format: mm[4] || '' });
+    }
+    if (!found.length) throw new Error('Font CSS contained no url(...) entries');
+    log('Fetching ' + found.length + ' font file(s)');
+    var map = {};
+    var total = 0;
+    await Promise.all(found.map(async function (f) {
+      var abs = new URL(f.url, cssUrl).href;
+      var blob = await (await fetchOk(abs, 'font file')).blob();
+      total += blob.size;
+      map[f.url] = await blobToDataURL(blob, guessMime(abs, f.format, blob.type));
+    }));
+    log('Fonts downloaded: ' + total + ' bytes total');
+    var inlined = fontCss.replace(urlRe, function (whole, q, u, fmtPart) {
+      return map[u] ? 'url("' + map[u] + '")' + (fmtPart || '') : whole;
+    });
+    // Use a function replacement so "$" sequences in the CSS are not interpreted.
+    styleEl.textContent = css.replace(importRe, function () { return inlined; });
+  }
+
+  async function inlineImages(doc, baseUrl) {
+    var imgs = doc.getElementsByTagNameNS(SVG_NS, 'image');
+    var list = Array.prototype.slice.call(imgs);
+    await Promise.all(list.map(async function (el) {
+      var href = el.getAttribute('href');
+      var xhref = el.getAttributeNS(XLINK_NS, 'href');
+      var src = href || xhref;
+      if (!src || src.indexOf('data:') === 0) return;
+      var abs = new URL(src, baseUrl).href;
+      var blob = await (await fetchOk(abs, 'image')).blob();
+      var dataUrl = await blobToDataURL(blob, guessMime(abs, '', blob.type));
+      if (href !== null) el.setAttribute('href', dataUrl);
+      if (xhref !== null || href === null) el.setAttributeNS(XLINK_NS, 'xlink:href', dataUrl);
+      log('Inlined image ' + src + ' (' + blob.size + ' bytes)');
+    }));
+  }
+
+  function svgSize(root) {
+    var w = parseFloat(root.getAttribute('width'));
+    var h = parseFloat(root.getAttribute('height'));
+    if (!(w > 0 && h > 0)) {
+      var vb = (root.getAttribute('viewBox') || '').trim().split(/[\s,]+/).map(parseFloat);
+      if (vb.length === 4 && vb[2] > 0 && vb[3] > 0) { w = vb[2]; h = vb[3]; }
+    }
+    if (!(w > 0 && h > 0)) throw new Error('Cannot determine SVG width/height');
+    return { w: w, h: h };
+  }
+
+  function loadImage(src) {
+    return new Promise(function (resolve, reject) {
+      var img = new Image();
+      img.onload = function () { resolve(img); };
+      img.onerror = function () { reject(new Error('Failed to load serialized SVG as image')); };
+      img.src = src;
+    });
+  }
+
+  function canvasToBlob(canvas, mime, quality) {
+    return new Promise(function (resolve, reject) {
+      try {
+        canvas.toBlob(function (b) {
+          if (b) resolve(b); else reject(new Error('canvas.toBlob returned null'));
+        }, mime, quality);
+      } catch (e) { reject(e); }
+    });
+  }
+
+  async function drawToBlob(src, cw, ch, mime, quality) {
+    var img = await loadImage(src);
+    if (img.decode) { try { await img.decode(); } catch (e) { log('img.decode() warning: ' + e.message); } }
+    var canvas = document.createElement('canvas');
+    canvas.width = cw;
+    canvas.height = ch;
+    var ctx = canvas.getContext('2d');
+    function paint() {
+      ctx.clearRect(0, 0, cw, ch);
+      if (mime === 'image/jpeg') { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, cw, ch); }
+      ctx.drawImage(img, 0, 0, cw, ch);
+    }
+    await sleep(300);
+    paint();
+    await sleep(700); // second pass in case embedded fonts finished loading after the first draw
+    paint();
+    return canvasToBlob(canvas, mime, quality);
+  }
+
+  async function run() {
+    var params = new URLSearchParams(location.search);
+    var svgParam = params.get('svg');
+    if (!svgParam) throw new Error('Missing ?svg= parameter');
+    var svgUrl = new URL(svgParam, location.href).href;
+    var baseName = svgParam.split('/').pop().replace(/\.svg$/i, '');
+    var out = params.get('out') || ('images/' + baseName + '.jpg');
+    var scale = parseFloat(params.get('scale') || '1');
+    if (!(scale > 0)) throw new Error('Invalid scale: ' + params.get('scale'));
+    var q = parseFloat(params.get('q') || '0.92');
+    if (!(q > 0 && q <= 1)) throw new Error('Invalid q (must be 0-1]: ' + params.get('q'));
+    var isPng = /\.png$/i.test(out);
+    var mime = isPng ? 'image/png' : 'image/jpeg';
+
+    log('SVG: ' + svgUrl);
+    log('Out: ' + out + ' (' + mime + ', scale ' + scale + (isPng ? '' : ', q ' + q) + ')');
+
+    var svgText = await (await fetchOk(svgUrl, 'SVG')).text();
+    var doc = new DOMParser().parseFromString(svgText, 'image/svg+xml');
+    var perr = doc.getElementsByTagName('parsererror')[0];
+    if (perr) throw new Error('SVG parse error: ' + perr.textContent.slice(0, 300));
+    var root = doc.documentElement;
+
+    await inlineFonts(doc);
+    await inlineImages(doc, svgUrl);
+
+    var size = svgSize(root);
+    var cw = Math.round(size.w * scale);
+    var ch = Math.round(size.h * scale);
+    // Make sure the root has explicit pixel dimensions for the <img> intrinsic size.
+    root.setAttribute('width', String(size.w));
+    root.setAttribute('height', String(size.h));
+
+    var serialized = new XMLSerializer().serializeToString(doc);
+    log('Serialized SVG: ' + serialized.length + ' chars; canvas ' + cw + 'x' + ch);
+
+    var svgBlob = new Blob([serialized], { type: 'image/svg+xml;charset=utf-8' });
+    var blobUrl = URL.createObjectURL(svgBlob);
+    var outBlob;
+    try {
+      outBlob = await drawToBlob(blobUrl, cw, ch, isPng ? 'image/png' : 'image/jpeg', isPng ? undefined : q);
+    } catch (e) {
+      // Some browsers taint canvases drawn from blob: SVGs; retry with a data: URL.
+      log('Blob URL render failed (' + e.message + '); retrying with data URL');
+      var dataUrl = await blobToDataURL(svgBlob, 'image/svg+xml');
+      outBlob = await drawToBlob(dataUrl, cw, ch, isPng ? 'image/png' : 'image/jpeg', isPng ? undefined : q);
+    } finally {
+      URL.revokeObjectURL(blobUrl);
+    }
+    log('Encoded ' + mime + ': ' + outBlob.size + ' bytes');
+
+    var saveRes = await fetch('/__save?path=' + encodeURIComponent(out), {
+      method: 'POST',
+      headers: { 'Content-Type': mime },
+      body: outBlob
+    });
+    var saveText = await saveRes.text();
+    if (!saveRes.ok) throw new Error('Save failed: HTTP ' + saveRes.status + ' ' + saveText);
+    log('Server: ' + saveText);
+
+    var shown = new Image();
+    shown.alt = out;
+    shown.src = URL.createObjectURL(outBlob);
+    var cap = document.createElement('div');
+    cap.textContent = 'Saved ' + out + ' (' + outBlob.size + ' bytes, ' + cw + 'x' + ch + ')';
+    resultEl.appendChild(cap);
+    resultEl.appendChild(shown);
+    return { out: out, bytes: outBlob.size };
+  }
+
+  run().then(function (r) {
+    window.renderResult = { ok: true, out: r.out, bytes: r.bytes, error: null };
+    document.title = 'DONE ' + r.out + ' ' + r.bytes;
+  }).catch(function (e) {
+    var msg = (e && e.message) ? e.message : String(e);
+    var outParam = new URLSearchParams(location.search).get('out');
+    window.renderResult = { ok: false, out: outParam, bytes: 0, error: msg };
+    document.title = 'ERROR ' + msg;
+    var d = document.createElement('div');
+    d.className = 'err';
+    d.textContent = 'ERROR: ' + msg;
+    resultEl.appendChild(d);
+    log('ERROR: ' + msg);
+  });
+})();
+</script>
+</body>
+</html>

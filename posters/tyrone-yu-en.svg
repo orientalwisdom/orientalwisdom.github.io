@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1086" height="1448" viewBox="0 0 1086 1448">
+  <style id="fonts">@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&amp;family=Cormorant+Garamond:wght@700&amp;display=swap');</style>
+  <style>
+    text { font-family: 'Nunito Sans', sans-serif; fill: #3b2314; }
+    .accent { fill: #d9821f; }
+    .muted { fill: #6b5a4e; }
+    .serif { font-family: 'Cormorant Garamond', serif; }
+  </style>
+  <defs>
+    <linearGradient id="fade" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#fffaf4" stop-opacity="1"/>
+      <stop offset="0.45" stop-color="#fffaf4" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#fffaf4" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1086" height="1448" fill="#fffaf4"/>
+
+  <!-- Portrait -->
+  <svg x="360" y="0" width="726" height="600" viewBox="0 0 726 600">
+    <image href="../images/doctor.jpg" x="0" y="-370" width="726" height="1056" preserveAspectRatio="none"/>
+  </svg>
+  <rect x="360" y="0" width="360" height="600" fill="url(#fade)"/>
+  <path d="M0,566 C300,520 700,650 1086,548 L1086,620 L0,620 Z" fill="#fffaf4"/>
+  <path d="M0,566 C300,520 700,650 1086,548" fill="none" stroke="#ffaf53" stroke-width="4"/>
+
+  <!-- Heading block -->
+  <text x="64" y="118" font-size="40" font-weight="800" class="accent">Traditional Chinese</text>
+  <text x="64" y="166" font-size="40" font-weight="800" class="accent">Medicine &amp; Acupuncture</text>
+  <text x="64" y="282" font-size="72" font-weight="800">Tyrone Yu<tspan font-size="40" font-weight="600">, L.Ac.</tspan></text>
+  <rect x="64" y="326" width="460" height="56" rx="28" fill="#ffaf53"/>
+  <text x="294" y="363" font-size="24" font-weight="700" text-anchor="middle">California Licensed Acupuncturist</text>
+  <text x="64" y="444" font-size="26" font-weight="600" class="muted">Decades of Clinical Experience</text>
+
+  <!-- Intro -->
+  <text font-size="22" font-weight="400">
+    <tspan x="64" y="664">I am Tyrone Yu, L.Ac., a California-licensed acupuncturist with decades of</tspan>
+    <tspan x="64" y="700">clinical experience. Pain is often a sign that the body is out of balance, and</tspan>
+    <tspan x="64" y="736">it weighs on both body and mind. I use acupuncture and Chinese herbal medicine</tspan>
+    <tspan x="64" y="772">to treat the root cause, relieve pain, restore function, and help patients</tspan>
+    <tspan x="64" y="808">regain their health and quality of life.</tspan>
+  </text>
+
+  <!-- Conditions -->
+  <rect x="56" y="842" width="8" height="46" rx="2" fill="#ffaf53"/>
+  <text x="82" y="878" font-size="36" font-weight="800">Conditions We Treat</text>
+  <rect x="34" y="912" width="1018" height="380" rx="22" fill="#ffffff" stroke="#f3e3d1" stroke-width="2"/>
+  <line x1="543" y1="940" x2="543" y2="1266" stroke="#f0dcc6" stroke-width="2"/>
+  <g fill="#ffaf53">
+    <circle cx="72" cy="952" r="6"/><circle cx="72" cy="990" r="6"/><circle cx="72" cy="1028" r="6"/>
+    <circle cx="72" cy="1066" r="6"/><circle cx="72" cy="1104" r="6"/><circle cx="72" cy="1142" r="6"/>
+    <circle cx="72" cy="1180" r="6"/><circle cx="72" cy="1218" r="6"/><circle cx="72" cy="1256" r="6"/>
+    <circle cx="578" cy="952" r="6"/><circle cx="578" cy="990" r="6"/><circle cx="578" cy="1028" r="6"/>
+    <circle cx="578" cy="1066" r="6"/><circle cx="578" cy="1104" r="6"/><circle cx="578" cy="1142" r="6"/>
+    <circle cx="578" cy="1180" r="6"/><circle cx="578" cy="1218" r="6"/>
+  </g>
+  <text font-size="19" font-weight="600">
+    <tspan x="92" y="958">Headaches &amp; migraines</tspan>
+    <tspan x="92" y="996">Neck/shoulder pain, numbness, frozen shoulder</tspan>
+    <tspan x="92" y="1034">Low back pain, herniated disc, arthritis</tspan>
+    <tspan x="92" y="1072">Knee pain</tspan>
+    <tspan x="92" y="1110">Sciatica</tspan>
+    <tspan x="92" y="1148">Facial paralysis (Bell's palsy)</tspan>
+    <tspan x="92" y="1186">Trigger finger, De Quervain's, carpal tunnel</tspan>
+    <tspan x="92" y="1224">Heel pain &amp; plantar fasciitis</tspan>
+    <tspan x="92" y="1262">Muscle cramps</tspan>
+    <tspan x="598" y="958">TMJ / jaw pain, limited mouth opening</tspan>
+    <tspan x="598" y="996">Allergic rhinitis</tspan>
+    <tspan x="598" y="1034">Infertility &amp; cycle regulation</tspan>
+    <tspan x="598" y="1072">Menstrual pain &amp; irregular periods</tspan>
+    <tspan x="598" y="1110">Edema (swollen feet)</tspan>
+    <tspan x="598" y="1148">Anxiety, depression &amp; stress</tspan>
+    <tspan x="598" y="1186">Insomnia &amp; restless sleep</tspan>
+    <tspan x="598" y="1224">Chemo/radiation side-effect relief</tspan>
+  </text>
+
+  <!-- Footer -->
+  <path d="M0,1338 C300,1300 700,1376 1086,1316 L1086,1448 L0,1448 Z" fill="#ffaf53"/>
+  <image href="../images/logo-white.png" x="60" y="1352" width="84" height="84"/>
+  <text x="162" y="1408" font-size="38" class="serif">Oriental Wisdom Clinic</text>
+  <line x1="566" y1="1364" x2="566" y2="1432" stroke="#3b2314" stroke-opacity="0.35" stroke-width="2"/>
+  <circle cx="626" cy="1398" r="30" fill="#3b2314"/>
+  <path transform="translate(608 1380) scale(1.5)" fill="#ffaf53" d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+  <text x="674" y="1381" font-size="22" font-weight="700">Book a Consultation</text>
+  <text x="674" y="1428" font-size="44" font-weight="800">626-285-7588</text>
+</svg>

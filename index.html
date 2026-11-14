@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -25,11 +25,17 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="fas fa-bars"></span> </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"> <a class="nav-link" href="" data-scroll-nav="0">Home</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="1">About</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="2">Services</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="3">Our Clinic</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="4">Contact</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="" data-scroll-nav="0" data-zh="首頁">Home</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="1" data-zh="關於我們">About</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="2" data-zh="服務項目">Services</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="3" data-zh="診所環境">Our Clinic</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="4" data-zh="聯絡我們">Contact</a> </li>
+        <li class="nav-item lang-item">
+          <div class="lang-toggle" role="group" aria-label="Language / 語言">
+            <button type="button" data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" data-lang="zh" aria-pressed="false" lang="zh-Hant">中文</button>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
@@ -41,9 +47,9 @@
 <div class="banner text-center" data-scroll-index='0'>
   <div class="banner-overlay">
     <div class="container">
-      <h1 class="text-capitalize">Oritinal Wisdom Clinic </h1>
-      <p>“Take care of your body. It's the only place you have to live.”   – Jim Rohn</p>
-      <a href="#" class="banner-btn">Call Us Today</a> </div>
+      <h1 class="text-capitalize" data-zh="茗仁中醫養生館">Oriental Wisdom Clinic</h1>
+      <p data-zh="「好好照顧你的身體，它是你唯一的居所。」—— 吉姆・羅恩">“Take care of your body. It's the only place you have to live.”   – Jim Rohn</p>
+      <a href="#" class="banner-btn" data-zh="立即來電">Call Us Today</a> </div>
   </div>
 </div>
 
@@ -55,20 +61,22 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 section-title text-center">
-        <h3>We Are Best At Our Work</h3>
-        <p>Accepting Most Health Insurance Plans</p>
+        <h3 data-zh="專業用心，值得信賴">We Are Best At Our Work</h3>
+        <p data-zh="接受多數醫療保險">Accepting Most Health Insurance Plans</p>
         <span class="section-title-line"></span> </div>
       <div class="col-md-6 mb-50">
         <div class="section-info">
           <div class="sub-title-paragraph">
-            <h4>Do you know? </h4>
-            <h5>We help clients create healthy habits.</h5>
-            <p>#1 alternative choice in Tempa City</p>
+            <h4 data-zh="您知道嗎？">Do you know? </h4>
+            <h5 data-zh="我們幫助您建立健康的生活習慣。">We help clients create healthy habits.</h5>
+            <p data-zh="天普市首選的中醫自然療法">#1 alternative choice in Temple City</p>
           </div>
-          <a href="#" class="anchor-btn">Learn more <i class="fas fa-arrow-right pd-lt-10"></i></a> </div>
+          <a href="#" class="anchor-btn"><span data-zh="了解更多">Learn more</span> <i class="fas fa-arrow-right pd-lt-10"></i></a> </div>
       </div>
       <div class="col-md-6 mb-50">
-        <div class="section-img"> <img src="images/doctor.jpg" alt="Practitioner at his desk in the clinic" class="img-fluid"/> </div>
+        <div class="section-img">
+          <img src="images/flyer-tyrone-yu-en.jpg" alt="Tyrone Yu, L.Ac. – Traditional Chinese Medicine &amp; Acupuncture" class="img-fluid" data-zh-src="images/flyer-tyrone-yu-zh.jpg" data-zh-alt="游泰隆醫師 – 傳統中醫針灸"/>
+        </div>
       </div>
     </div>
   </div>
@@ -81,15 +89,15 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 section-title text-center">
-        <h3>Treatments and Services</h3>
-        <p>We help clients to improve overall health and well-being.</p>
+        <h3 data-zh="治療與服務">Treatments and Services</h3>
+        <p data-zh="我們致力於幫助您改善整體健康與身心狀態。">We help clients to improve overall health and well-being.</p>
         <span class="section-title-line"></span> </div>
       <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
         <div class="service-box bg-white text-center">
           <div class="icon"> <i class="fas fa-heart"></i> </div>
           <div class="icon-text">
-            <h4 class="title-box">Chenese Herbs and Formula</h4>
-            <p>Chinese herbs have a long history of being used to support overall health and wellbeing, including the promotion of healthy diets and the maintenance of strong bones</p>
+            <h4 class="title-box" data-zh="中藥與方劑">Chinese Herbs and Formula</h4>
+            <p data-zh="中藥歷史悠久，長期用於調理整體健康，包括促進健康飲食與維持骨骼強健。">Chinese herbs have a long history of being used to support overall health and wellbeing, including the promotion of healthy diets and the maintenance of strong bones</p>
           </div>
         </div>
       </div>
@@ -97,8 +105,8 @@
         <div class="service-box bg-white text-center">
           <div class="icon"> <i class="fas fa-heart"></i> </div>
           <div class="icon-text">
-            <h4 class="title-box">Facial Powder Masks</h4>
-            <p>Facial powder masks are a type of cosmetic treatment that use a combination of natural ingredients, including herbs and minerals, to nourish and rejuvenate the skin.</p>
+            <h4 class="title-box" data-zh="中藥粉面膜">Facial Powder Masks</h4>
+            <p data-zh="中藥粉面膜結合草本與礦物等天然成分，滋養肌膚、煥發光采。">Facial powder masks are a type of cosmetic treatment that use a combination of natural ingredients, including herbs and minerals, to nourish and rejuvenate the skin.</p>
           </div>
         </div>
       </div>
@@ -106,8 +114,8 @@
         <div class="service-box bg-white text-center">
           <div class="icon"> <i class="fas fa-heart"></i> </div>
           <div class="icon-text">
-            <h4 class="title-box">Acupuncture Services</h4>
-            <p>Acupuncture services involve the insertion of thin needles into specific points on the body to stimulate the body's natural healing process. </p>
+            <h4 class="title-box" data-zh="針灸">Acupuncture Services</h4>
+            <p data-zh="針灸是將細針刺入身體特定穴位，激發人體自然的自癒能力。">Acupuncture services involve the insertion of thin needles into specific points on the body to stimulate the body's natural healing process. </p>
           </div>
         </div>
       </div>
@@ -115,8 +123,8 @@
         <div class="service-box bg-white text-center">
           <div class="icon"> <i class="fas fa-heart"></i> </div>
           <div class="icon-text">
-            <h4 class="title-box">Chinese Herbs for COVID-19</h4>
-            <p>Personalized recommendations to support the body's natural immune system and promote overall health and wellness in COVID-19 and post-COVID-19 related situations</p>
+            <h4 class="title-box" data-zh="拔罐">Cupping Treatments</h4>
+            <p data-zh="拔罐是將罐具吸附於皮膚上，促進血液循環，舒緩疼痛與肌肉緊繃。">Cupping is a therapy that involves the use of suction cups placed on the skin to promote circulation and relieve pain and tension.</p>
           </div>
         </div>
       </div>
@@ -124,8 +132,8 @@
         <div class="service-box bg-white text-center">
           <div class="icon"> <i class="fas fa-heart"></i> </div>
           <div class="icon-text">
-            <h4 class="title-box">Cupping Treatments</h4>
-            <p>Cupping is a therapy that involves the use of suction cups placed on the skin to promote circulation and relieve pain and tension.</p>
+            <h4 class="title-box" data-zh="月子調理">Postpartum Care</h4>
+            <p data-zh="提供按摩、營養支持與中藥調理，幫助產後修復與恢復。">We offer massages, nutritional support, and herbal remedies to promote healing and recovery.</p>
           </div>
         </div>
       </div>
@@ -133,8 +141,8 @@
         <div class="service-box bg-white text-center">
           <div class="icon"> <i class="fas fa-heart"></i> </div>
           <div class="icon-text">
-            <h4 class="title-box">Postpartum Care</h4>
-            <p>We offer masssages, nutritional support, and herbal remedies to promote healing and recovery.</p>
+            <h4 class="title-box" data-zh="般尼克能量療癒法">Pranic and Energy Healing</h4>
+            <p data-zh="調和身體能量系統，促進身心靈的平衡與和諧。">Promoting balance and harmony in the body's energy systems.</p>
           </div>
         </div>
       </div>
@@ -142,8 +150,8 @@
         <div class="service-box bg-white text-center">
           <div class="icon"> <i class="fas fa-heart"></i> </div>
           <div class="icon-text">
-            <h4 class="title-box">Pranic and Energy Healing</h4>
-            <p>Promoting balance and harmony in the body's energy systems.</p>
+            <h4 class="title-box" data-zh="線上諮詢">Online Consultations</h4>
+            <p data-zh="在家中即可輕鬆與醫師諮詢。">Having a conversation with doctors from the comfort of your home</p>
           </div>
         </div>
       </div>
@@ -151,17 +159,8 @@
         <div class="service-box bg-white text-center">
           <div class="icon"> <i class="fas fa-heart"></i> </div>
           <div class="icon-text">
-            <h4 class="title-box">Online Consultations</h4>
-            <p>Having a conversation with doctors from the comfort of your home</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
-        <div class="service-box bg-white text-center">
-          <div class="icon"> <i class="fas fa-heart"></i> </div>
-          <div class="icon-text">
-            <h4 class="title-box">Essential Oil Massage</h4>
-            <p>With hight quality therapeutic grade essential oil. </p>
+            <h4 class="title-box" data-zh="精油按摩">Essential Oil Massage</h4>
+            <p data-zh="使用高品質療癒級精油。">With high quality therapeutic grade essential oil. </p>
           </div>
         </div>
       </div>
@@ -176,8 +175,8 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12 section-title text-center">
-        <h3>Peace Health Profession</h3>
-        <p>Imporving your mind and body's energy</p>
+        <h3 data-zh="身心安康，專業守護">Peace Health Profession</h3>
+        <p data-zh="提升您的身心能量">Improving your mind and body's energy</p>
         <span class="section-title-line"></span> </div>
       <!-- <div class="filtering text-center mb-30">
         <button type="button" data-filter='*' class="active">All</button>
@@ -188,11 +187,21 @@
       </div>   -->
       <div class="gallery no-padding col-lg-12 col-sm-12">
         <div class="col-lg-4 col-sm-6 no-padding">
-          <div class="item-img"> <a class="single-image" href="images/waiting-room.jpg"></a>
-            <div class="part-img"> <img src="images/waiting-room.jpg" alt="Clinic waiting room and front desk">
+          <div class="item-img"> <a class="single-image" href="images/storefront.jpg"></a>
+            <div class="part-img"> <img src="images/storefront.jpg" alt="Oriental Wisdom Clinic storefront, suite 205" data-zh-alt="茗仁中醫養生館外觀，205 室">
               <div class="overlay-img">
-                <h4>Clinic</h4>
-                <h6>Waiting room</h6>
+                <h4 data-zh="診所">Clinic</h4>
+                <h6 data-zh="診所外觀">Storefront</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 no-padding">
+          <div class="item-img"> <a class="single-image" href="images/waiting-room.jpg"></a>
+            <div class="part-img"> <img src="images/waiting-room.jpg" alt="Clinic waiting room and front desk" data-zh-alt="診所候診區與櫃台">
+              <div class="overlay-img">
+                <h4 data-zh="診所">Clinic</h4>
+                <h6 data-zh="候診區">Waiting room</h6>
               </div>
             </div>
           </div>
@@ -201,8 +210,8 @@
           <div class="item-img"> <a class="single-image" href="images/consultation1.jpg"></a>
             <div class="part-img"> <img src="images/consultation1.jpg" alt="Patient consultation">
               <div class="overlay-img">
-                <h4>Clinic</h4>
-                <h6>Consultation</h6>
+                <h4 data-zh="診所">Clinic</h4>
+                <h6 data-zh="看診諮詢">Consultation</h6>
               </div>
             </div>
           </div>
@@ -211,8 +220,8 @@
           <div class="item-img"> <a class="single-image" href="images/consultation3.jpg"></a>
             <div class="part-img"> <img src="images/consultation3.jpg" alt="Practitioner consulting with a patient">
               <div class="overlay-img">
-                <h4>Clinic</h4>
-                <h6>Consultation</h6>
+                <h4 data-zh="診所">Clinic</h4>
+                <h6 data-zh="看診諮詢">Consultation</h6>
               </div>
             </div>
           </div>
@@ -221,8 +230,8 @@
           <div class="item-img"> <a class="single-image" href="images/gall2.jpg"></a>
             <div class="part-img"> <img src="images/gall2.jpg" alt="image">
               <div class="overlay-img">
-                <h4>Clinic</h4>
-                <h6>Acupuncture points</h6>
+                <h4 data-zh="診所">Clinic</h4>
+                <h6 data-zh="針灸穴位">Acupuncture points</h6>
               </div>
             </div>
           </div>
@@ -231,8 +240,8 @@
           <div class="item-img"> <a class="single-image" href="images/gall3.jpg"></a>
             <div class="part-img"> <img src="images/gall3.jpg" alt="image">
               <div class="overlay-img">
-                <h4>Clinic</h4>
-                <h6>Clinic</h6>
+                <h4 data-zh="診所">Clinic</h4>
+                <h6 data-zh="診所">Clinic</h6>
               </div>
             </div>
           </div>
@@ -241,8 +250,8 @@
           <div class="item-img"> <a class="single-image" href="images/gall4.jpg"></a>
             <div class="part-img"> <img src="images/gall4.jpg" alt="image">
               <div class="overlay-img">
-                <h4>Clinic</h4>
-                <h6>Clinic</h6>
+                <h4 data-zh="診所">Clinic</h4>
+                <h6 data-zh="診所">Clinic</h6>
               </div>
             </div>
           </div>
@@ -251,8 +260,8 @@
           <div class="item-img"> <a class="single-image" href="images/gall5.jpg"></a>
             <div class="part-img"> <img src="images/gall5.jpg" alt="image">
               <div class="overlay-img">
-                <h4>Clinic</h4>
-                <h6>Clinic</h6>
+                <h4 data-zh="診所">Clinic</h4>
+                <h6 data-zh="診所">Clinic</h6>
               </div>
             </div>
           </div>
@@ -261,8 +270,8 @@
           <div class="item-img"> <a class="single-image" href="images/gall7.jpg"></a>
             <div class="part-img"> <img src="images/gall7.jpg" alt="image">
               <div class="overlay-img">
-                <h4>Healing</h4>
-                <h6>Clinic</h6>
+                <h4 data-zh="療癒">Healing</h4>
+                <h6 data-zh="診所">Clinic</h6>
               </div>
             </div>
           </div>
@@ -271,8 +280,8 @@
           <div class="item-img"> <a class="single-image" href="images/gall8.jpg"></a>
             <div class="part-img"> <img src="images/gall8.jpg" alt="image">
               <div class="overlay-img">
-                <h4>Clinic</h4>
-                <h6>Clinic</h6>
+                <h4 data-zh="診所">Clinic</h4>
+                <h6 data-zh="診所">Clinic</h6>
               </div>
             </div>
           </div>
@@ -281,8 +290,8 @@
           <div class="item-img"> <a class="single-image" href="images/gall9.jpg"></a>
             <div class="part-img"> <img src="images/gall9.jpg" alt="image">
               <div class="overlay-img">
-                <h4>Clinic</h4>
-                <h6>Clinic</h6>
+                <h4 data-zh="診所">Clinic</h4>
+                <h6 data-zh="診所">Clinic</h6>
               </div>
             </div>
           </div>
@@ -301,7 +310,7 @@
           <div class="owl-carousel owl-theme">
             <div class="testimonial-item text-center">
               <div class="icon"> <i class="fas fa-comments"></i> </div>
-              <p class="m-auto">I am grateful for Dr. Cindy helping me with my health journey.  Her compassion, empathy along with her technique, and holistic approach of Accupuncture and herbs has been outstanding. Also, I appreciate the clean and Zen atmosphere.</p>
+              <p class="m-auto" data-zh="感謝 Cindy 醫師在我的健康之路上給予的幫助。她的關懷與同理心、精湛的技術，以及結合針灸與中藥的整體療法都令人讚嘆。我也很喜歡診所乾淨又充滿禪意的環境。">I am grateful for Dr. Cindy helping me with my health journey.  Her compassion, empathy along with her technique, and holistic approach of Accupuncture and herbs has been outstanding. Also, I appreciate the clean and Zen atmosphere.</p>
               <div class="testimonial-author text-center">
                 <h5>Perla</h5>
                 <h6></h6>
@@ -309,7 +318,7 @@
             </div>
             <div class="testimonial-item text-center">
               <div class="icon"> <i class="fas fa-comments"></i> </div>
-              <p class="m-auto">I have been to this healing space several times to see my healer Cindy Chang. I have received both Pranic healing and acupuncture treatments from her. Cindy is a true healer, she has magic in her hands and deep kindness in her heart. She has helped me with sciatic pain and backaches as well as heartache when I was grieving the loss of a loved one. I would highly recommend her. Thank you Cindy, you are the best ♥️♥️♥️</p>
+              <p class="m-auto" data-zh="我來過這個療癒空間好幾次，找我的療癒師 Cindy Chang。她為我做過般尼克能量療癒和針灸治療。Cindy 是真正的療癒師，她的雙手充滿魔力，內心充滿善意。她幫我緩解了坐骨神經痛和背痛，也在我失去摯愛、悲痛不已時撫慰了我的心。我非常推薦她。謝謝你，Cindy，你是最棒的 ♥️♥️♥️">I have been to this healing space several times to see my healer Cindy Chang. I have received both Pranic healing and acupuncture treatments from her. Cindy is a true healer, she has magic in her hands and deep kindness in her heart. She has helped me with sciatic pain and backaches as well as heartache when I was grieving the loss of a loved one. I would highly recommend her. Thank you Cindy, you are the best ♥️♥️♥️</p>
               <div class="testimonial-author text-center">
                 <h5>Rekha</h5>
                 <h6></h6>
@@ -328,29 +337,29 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 section-title text-center">
-        <h3>Contact Us For More</h3>
-        <p>Make a decision for a new life</p>
+        <h3 data-zh="歡迎與我們聯繫">Contact Us For More</h3>
+        <p data-zh="開啟健康新生活">Make a decision for a new life</p>
         <span class="section-title-line"></span> </div>
       <div class="col-lg-5 col-md-4">
         <div class="part-info">
           <div class="info-box">
             <div class="icon"> <i class="fas fa-phone"></i> </div>
             <div class="content">
-              <h4>Phone :</h4>
+              <h4 data-zh="電話：">Phone :</h4>
               <p>(626) 285-7588</p>
             </div>
           </div>
           <div class="info-box">
             <div class="icon"> <i class="fas fa-map-marker-alt"></i> </div>
             <div class="content">
-              <h4>Address :</h4>
+              <h4 data-zh="地址：">Address :</h4>
               <p>5546 Rosemead Blvd #205, Temple City CA 91780</p>
             </div>
           </div>
           <div class="info-box">
             <div class="icon"> <i class="fas fa-envelope"></i> </div>
             <div class="content">
-              <h4>Mail :</h4>
+              <h4 data-zh="電子郵件：">Mail :</h4>
               <p><a href="#">orientalwisdomllc@gmail.com</a></p>
             </div>
           </div>
@@ -365,27 +374,27 @@
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <input id="form_name" type="text" name="name" placeholder="Name *" required data-error="name is required.">
+                    <input id="form_name" type="text" name="name" placeholder="Name *" data-zh-placeholder="姓名 *" required data-error="name is required.">
                     <div class="help-block with-errors"></div>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <input id="form_email" type="email" name="email" placeholder="Email *" required data-error="Valid email is required.">
+                    <input id="form_email" type="email" name="email" placeholder="Email *" data-zh-placeholder="電子郵件 *" required data-error="Valid email is required.">
                     <div class="help-block with-errors"></div>
                   </div>
                 </div>
                 <div class="col-lg-12">
                   <div class="form-group">
-                    <input id="form_subject" type="text" name="subject" placeholder="Subject">
+                    <input id="form_subject" type="text" name="subject" placeholder="Subject" data-zh-placeholder="主旨">
                   </div>
                 </div>
                 <div class="col-lg-12 form-group">
-                  <textarea id="form_message" name="message" class="form-control" placeholder=" Type Your Message " rows="4" required data-error="Please,leave us a message."></textarea>
+                  <textarea id="form_message" name="message" class="form-control" placeholder=" Type Your Message " data-zh-placeholder="請輸入您的訊息" rows="4" required data-error="Please,leave us a message."></textarea>
                   <div class="help-block with-errors"></div>
                 </div>
                 <div class="col-lg-12 text-center">
-                  <button class="bttn">Send Message</button>
+                  <button class="bttn" data-zh="送出訊息">Send Message</button>
                 </div>
               </div>
             </div>
@@ -400,7 +409,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <p>2023 &copy; Oriental Wisdom Clinic.</p><p> Powered by W3Template</p>
+        <p data-zh="2023 © 茗仁中醫養生館">2023 &copy; Oriental Wisdom Clinic.</p><p> Powered by W3Template</p>
       </div>
     </div>
   </div>
@@ -539,6 +548,56 @@ $( ".cover-bg" ).each(function() {
   });
 
 });
+
+// Site-wide EN / 中文 switch.
+// Any element with data-zh="..." shows that text in Chinese mode; English stays in the HTML.
+// Also supported: data-zh-placeholder, data-zh-alt, data-zh-src.
+(function () {
+  var STORE_KEY = 'ow-lang';
+  var ATTRS = { 'data-zh-placeholder': 'placeholder', 'data-zh-alt': 'alt', 'data-zh-src': 'src' };
+  var titles = { en: 'Oriental Wisdom Clinic', zh: '茗仁中醫養生館' };
+  var nodes = document.querySelectorAll('[data-zh],[data-zh-placeholder],[data-zh-alt],[data-zh-src]');
+  var buttons = document.querySelectorAll('.lang-toggle button');
+
+  // Remember the English version of everything once, so switching back is exact.
+  for (var i = 0; i < nodes.length; i++) {
+    var el = nodes[i];
+    if (el.hasAttribute('data-zh')) el._enHTML = el.innerHTML;
+    for (var a in ATTRS) if (el.hasAttribute(a)) el['_en_' + ATTRS[a]] = el.getAttribute(ATTRS[a]);
+    if (el.hasAttribute('data-zh-src')) new Image().src = el.getAttribute('data-zh-src'); // preload
+  }
+
+  function apply(lang) {
+    var zh = lang === 'zh';
+    for (var i = 0; i < nodes.length; i++) {
+      var el = nodes[i];
+      if (el.hasAttribute('data-zh')) {
+        if (zh) el.textContent = el.getAttribute('data-zh'); else el.innerHTML = el._enHTML;
+      }
+      for (var a in ATTRS) {
+        if (el.hasAttribute(a)) el.setAttribute(ATTRS[a], zh ? el.getAttribute(a) : el['_en_' + ATTRS[a]]);
+      }
+    }
+    document.documentElement.lang = zh ? 'zh-Hant' : 'en';
+    document.title = titles[lang];
+    for (var j = 0; j < buttons.length; j++) {
+      buttons[j].setAttribute('aria-pressed', buttons[j].getAttribute('data-lang') === lang ? 'true' : 'false');
+    }
+  }
+
+  for (var k = 0; k < buttons.length; k++) {
+    buttons[k].addEventListener('click', function () {
+      var lang = this.getAttribute('data-lang');
+      apply(lang);
+      try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
+    });
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem(STORE_KEY); } catch (e) {}
+  var browserZh = (navigator.language || '').toLowerCase().indexOf('zh') === 0;
+  apply(saved === 'en' || saved === 'zh' ? saved : (browserZh ? 'zh' : 'en'));
+})();
 
 </script>
 </body>
