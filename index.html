@@ -26,10 +26,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item"> <a class="nav-link" href="" data-scroll-nav="0" data-zh="首頁">Home</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="1" data-zh="關於我們">About</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="2" data-zh="服務項目">Services</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="3" data-zh="診所環境">Our Clinic</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="4" data-zh="聯絡我們">Contact</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="1" data-zh="診所介紹">Our Clinic</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="2" data-zh="關於我們">About</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="3" data-zh="診所相簿">Gallery</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="4" data-zh="服務項目">Services</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#" data-scroll-nav="5" data-zh="聯絡我們">Contact</a> </li>
         <li class="nav-item lang-item">
           <div class="lang-toggle" role="group" aria-label="Language / 語言">
             <button type="button" data-lang="en" aria-pressed="true">EN</button>
@@ -55,16 +56,41 @@
 
 <!-- End Banner Image --> 
 
+<!-- Our Clinic -->
+<div class="clinic section-padding" data-scroll-index='1'>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 section-title text-center">
+        <h3 data-zh="診所介紹">Our Clinic</h3>
+        <p data-zh="位於天普市，寧靜舒適的療癒空間">A calm, welcoming space in Temple City</p>
+        <span class="section-title-line"></span> </div>
+      <div class="col-md-6 mb-30">
+        <a class="clinic-photo" href="images/storefront.jpg" data-fancybox="clinic">
+          <img src="images/storefront.jpg" alt="Oriental Wisdom Clinic storefront, suite 205" data-zh-alt="茗仁中醫養生館外觀，205 室">
+        </a>
+        <p class="clinic-caption" data-zh="診所外觀 — Rosemead Blvd 5546 號 205 室">Our storefront — 5546 Rosemead Blvd, Suite 205</p>
+      </div>
+      <div class="col-md-6 mb-30">
+        <a class="clinic-photo" href="images/waiting-room.jpg" data-fancybox="clinic">
+          <img src="images/waiting-room.jpg" alt="Clinic waiting room and front desk" data-zh-alt="診所候診區與櫃台">
+        </a>
+        <p class="clinic-caption" data-zh="候診區與櫃台">Waiting room &amp; front desk</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Our Clinic -->
+
 <!-- About -->
 
-<div class="about-us section-padding" data-scroll-index='1'>
+<div class="about-us section-padding bg-grey" data-scroll-index='2'>
   <div class="container">
     <div class="row">
       <div class="col-md-12 section-title text-center">
         <h3 data-zh="專業用心，值得信賴">We Are Best At Our Work</h3>
         <p data-zh="接受多數醫療保險">Accepting Most Health Insurance Plans</p>
         <span class="section-title-line"></span> </div>
-      <div class="col-md-6 mb-50">
+      <div class="col-md-12 mb-50 text-center">
         <div class="section-info">
           <div class="sub-title-paragraph">
             <h4 data-zh="您知道嗎？">Do you know? </h4>
@@ -73,102 +99,22 @@
           </div>
           <a href="#" class="anchor-btn"><span data-zh="了解更多">Learn more</span> <i class="fas fa-arrow-right pd-lt-10"></i></a> </div>
       </div>
-      <div class="col-md-6 mb-50">
-        <div class="section-img">
+      <!-- Practitioners: shown side by side at equal size, ordered alphabetically by surname -->
+      <div class="col-md-6 mb-30">
+        <a class="doctor-poster" href="images/flyer-hsien-fang-en.jpg" data-zh-href="images/flyer-hsien-fang-zh.jpg" data-fancybox="doctors">
+          <img src="images/flyer-hsien-fang-en.jpg" alt="Hsien Fang, L.Ac. – A Zen Acupuncturist" class="img-fluid" data-zh-src="images/flyer-hsien-fang-zh.jpg" data-zh-alt="方憲中醫師 – 禪醫中道"/>
+        </a>
+      </div>
+      <div class="col-md-6 mb-30">
+        <a class="doctor-poster" href="images/flyer-tyrone-yu-en.jpg" data-zh-href="images/flyer-tyrone-yu-zh.jpg" data-fancybox="doctors">
           <img src="images/flyer-tyrone-yu-en.jpg" alt="Tyrone Yu, L.Ac. – Traditional Chinese Medicine &amp; Acupuncture" class="img-fluid" data-zh-src="images/flyer-tyrone-yu-zh.jpg" data-zh-alt="游泰隆醫師 – 傳統中醫針灸"/>
-        </div>
+        </a>
       </div>
     </div>
   </div>
 </div>
 
 <!-- End About --> 
-
-<!-- Services -->
-<div class="services section-padding bg-grey" data-scroll-index='2'>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 section-title text-center">
-        <h3 data-zh="治療與服務">Treatments and Services</h3>
-        <p data-zh="我們致力於幫助您改善整體健康與身心狀態。">We help clients to improve overall health and well-being.</p>
-        <span class="section-title-line"></span> </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
-        <div class="service-box bg-white text-center">
-          <div class="icon"> <i class="fas fa-heart"></i> </div>
-          <div class="icon-text">
-            <h4 class="title-box" data-zh="中藥與方劑">Chinese Herbs and Formula</h4>
-            <p data-zh="中藥歷史悠久，長期用於調理整體健康，包括促進健康飲食與維持骨骼強健。">Chinese herbs have a long history of being used to support overall health and wellbeing, including the promotion of healthy diets and the maintenance of strong bones</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
-        <div class="service-box bg-white text-center">
-          <div class="icon"> <i class="fas fa-heart"></i> </div>
-          <div class="icon-text">
-            <h4 class="title-box" data-zh="中藥粉面膜">Facial Powder Masks</h4>
-            <p data-zh="中藥粉面膜結合草本與礦物等天然成分，滋養肌膚、煥發光采。">Facial powder masks are a type of cosmetic treatment that use a combination of natural ingredients, including herbs and minerals, to nourish and rejuvenate the skin.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
-        <div class="service-box bg-white text-center">
-          <div class="icon"> <i class="fas fa-heart"></i> </div>
-          <div class="icon-text">
-            <h4 class="title-box" data-zh="針灸">Acupuncture Services</h4>
-            <p data-zh="針灸是將細針刺入身體特定穴位，激發人體自然的自癒能力。">Acupuncture services involve the insertion of thin needles into specific points on the body to stimulate the body's natural healing process. </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
-        <div class="service-box bg-white text-center">
-          <div class="icon"> <i class="fas fa-heart"></i> </div>
-          <div class="icon-text">
-            <h4 class="title-box" data-zh="拔罐">Cupping Treatments</h4>
-            <p data-zh="拔罐是將罐具吸附於皮膚上，促進血液循環，舒緩疼痛與肌肉緊繃。">Cupping is a therapy that involves the use of suction cups placed on the skin to promote circulation and relieve pain and tension.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
-        <div class="service-box bg-white text-center">
-          <div class="icon"> <i class="fas fa-heart"></i> </div>
-          <div class="icon-text">
-            <h4 class="title-box" data-zh="月子調理">Postpartum Care</h4>
-            <p data-zh="提供按摩、營養支持與中藥調理，幫助產後修復與恢復。">We offer massages, nutritional support, and herbal remedies to promote healing and recovery.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
-        <div class="service-box bg-white text-center">
-          <div class="icon"> <i class="fas fa-heart"></i> </div>
-          <div class="icon-text">
-            <h4 class="title-box" data-zh="般尼克能量療癒法">Pranic and Energy Healing</h4>
-            <p data-zh="調和身體能量系統，促進身心靈的平衡與和諧。">Promoting balance and harmony in the body's energy systems.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
-        <div class="service-box bg-white text-center">
-          <div class="icon"> <i class="fas fa-heart"></i> </div>
-          <div class="icon-text">
-            <h4 class="title-box" data-zh="線上諮詢">Online Consultations</h4>
-            <p data-zh="在家中即可輕鬆與醫師諮詢。">Having a conversation with doctors from the comfort of your home</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
-        <div class="service-box bg-white text-center">
-          <div class="icon"> <i class="fas fa-heart"></i> </div>
-          <div class="icon-text">
-            <h4 class="title-box" data-zh="精油按摩">Essential Oil Massage</h4>
-            <p data-zh="使用高品質療癒級精油。">With high quality therapeutic grade essential oil. </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- End Services --> 
 
 <!-- Gallery -->
 <div class="portfolio section-padding" data-scroll-index='3'>
@@ -186,26 +132,6 @@
         <button type="button" data-filter='.spring'>Spring</button>
       </div>   -->
       <div class="gallery no-padding col-lg-12 col-sm-12">
-        <div class="col-lg-4 col-sm-6 no-padding">
-          <div class="item-img"> <a class="single-image" href="images/storefront.jpg"></a>
-            <div class="part-img"> <img src="images/storefront.jpg" alt="Oriental Wisdom Clinic storefront, suite 205" data-zh-alt="茗仁中醫養生館外觀，205 室">
-              <div class="overlay-img">
-                <h4 data-zh="診所">Clinic</h4>
-                <h6 data-zh="診所外觀">Storefront</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 no-padding">
-          <div class="item-img"> <a class="single-image" href="images/waiting-room.jpg"></a>
-            <div class="part-img"> <img src="images/waiting-room.jpg" alt="Clinic waiting room and front desk" data-zh-alt="診所候診區與櫃台">
-              <div class="overlay-img">
-                <h4 data-zh="診所">Clinic</h4>
-                <h6 data-zh="候診區">Waiting room</h6>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="col-lg-4 col-sm-6 no-padding">
           <div class="item-img"> <a class="single-image" href="images/consultation1.jpg"></a>
             <div class="part-img"> <img src="images/consultation1.jpg" alt="Patient consultation">
@@ -301,6 +227,93 @@
   </div>
 </div>
 <!-- End Gallery -->
+
+<!-- Services -->
+<div class="services section-padding bg-grey" data-scroll-index='4'>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 section-title text-center">
+        <h3 data-zh="治療與服務">Treatments and Services</h3>
+        <p data-zh="我們致力於幫助您改善整體健康與身心狀態。">We help clients to improve overall health and well-being.</p>
+        <span class="section-title-line"></span> </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
+        <div class="service-box bg-white text-center">
+          <div class="icon"> <i class="fas fa-heart"></i> </div>
+          <div class="icon-text">
+            <h4 class="title-box" data-zh="中藥與方劑">Chinese Herbs and Formula</h4>
+            <p data-zh="中藥歷史悠久，長期用於調理整體健康，包括促進健康飲食與維持骨骼強健。">Chinese herbs have a long history of being used to support overall health and wellbeing, including the promotion of healthy diets and the maintenance of strong bones</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
+        <div class="service-box bg-white text-center">
+          <div class="icon"> <i class="fas fa-heart"></i> </div>
+          <div class="icon-text">
+            <h4 class="title-box" data-zh="中藥粉面膜">Facial Powder Masks</h4>
+            <p data-zh="中藥粉面膜結合草本與礦物等天然成分，滋養肌膚、煥發光采。">Facial powder masks are a type of cosmetic treatment that use a combination of natural ingredients, including herbs and minerals, to nourish and rejuvenate the skin.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
+        <div class="service-box bg-white text-center">
+          <div class="icon"> <i class="fas fa-heart"></i> </div>
+          <div class="icon-text">
+            <h4 class="title-box" data-zh="針灸">Acupuncture Services</h4>
+            <p data-zh="針灸是將細針刺入身體特定穴位，激發人體自然的自癒能力。">Acupuncture services involve the insertion of thin needles into specific points on the body to stimulate the body's natural healing process. </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
+        <div class="service-box bg-white text-center">
+          <div class="icon"> <i class="fas fa-heart"></i> </div>
+          <div class="icon-text">
+            <h4 class="title-box" data-zh="拔罐">Cupping Treatments</h4>
+            <p data-zh="拔罐是將罐具吸附於皮膚上，促進血液循環，舒緩疼痛與肌肉緊繃。">Cupping is a therapy that involves the use of suction cups placed on the skin to promote circulation and relieve pain and tension.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
+        <div class="service-box bg-white text-center">
+          <div class="icon"> <i class="fas fa-heart"></i> </div>
+          <div class="icon-text">
+            <h4 class="title-box" data-zh="月子調理">Postpartum Care</h4>
+            <p data-zh="提供按摩、營養支持與中藥調理，幫助產後修復與恢復。">We offer massages, nutritional support, and herbal remedies to promote healing and recovery.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
+        <div class="service-box bg-white text-center">
+          <div class="icon"> <i class="fas fa-heart"></i> </div>
+          <div class="icon-text">
+            <h4 class="title-box" data-zh="般尼克能量療癒法">Pranic and Energy Healing</h4>
+            <p data-zh="調和身體能量系統，促進身心靈的平衡與和諧。">Promoting balance and harmony in the body's energy systems.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
+        <div class="service-box bg-white text-center">
+          <div class="icon"> <i class="fas fa-heart"></i> </div>
+          <div class="icon-text">
+            <h4 class="title-box" data-zh="線上諮詢">Online Consultations</h4>
+            <p data-zh="在家中即可輕鬆與醫師諮詢。">Having a conversation with doctors from the comfort of your home</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-30">
+        <div class="service-box bg-white text-center">
+          <div class="icon"> <i class="fas fa-heart"></i> </div>
+          <div class="icon-text">
+            <h4 class="title-box" data-zh="精油按摩">Essential Oil Massage</h4>
+            <p data-zh="使用高品質療癒級精油。">With high quality therapeutic grade essential oil. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End Services --> 
+
 <!-- Testimonials -->
 <div class="testimonials">
   <div class="testimonials-overlay section-padding">
@@ -333,7 +346,7 @@
 <!-- End Testimonials --> 
 
 <!-- Contact -->
-<div class="contact section-padding" data-scroll-index='4'>
+<div class="contact section-padding" data-scroll-index='5'>
   <div class="container">
     <div class="row">
       <div class="col-md-12 section-title text-center">
@@ -353,14 +366,14 @@
             <div class="icon"> <i class="fas fa-map-marker-alt"></i> </div>
             <div class="content">
               <h4 data-zh="地址：">Address :</h4>
-              <p>5546 Rosemead Blvd #205, Temple City CA 91780</p>
+              <p><a href="https://www.google.com/maps/search/?api=1&amp;query=5546+Rosemead+Blvd+%23205%2C+Temple+City%2C+CA+91780" target="_blank" rel="noopener">5546 Rosemead Blvd #205, Temple City CA 91780</a></p>
             </div>
           </div>
           <div class="info-box">
             <div class="icon"> <i class="fas fa-envelope"></i> </div>
             <div class="content">
               <h4 data-zh="電子郵件：">Mail :</h4>
-              <p><a href="#">orientalwisdomllc@gmail.com</a></p>
+              <p><a href="mailto:orientalwisdomllc@gmail.com">orientalwisdomllc@gmail.com</a></p>
             </div>
           </div>
         </div>
@@ -551,12 +564,12 @@ $( ".cover-bg" ).each(function() {
 
 // Site-wide EN / 中文 switch.
 // Any element with data-zh="..." shows that text in Chinese mode; English stays in the HTML.
-// Also supported: data-zh-placeholder, data-zh-alt, data-zh-src.
+// Also supported: data-zh-placeholder, data-zh-alt, data-zh-src, data-zh-href.
 (function () {
   var STORE_KEY = 'ow-lang';
-  var ATTRS = { 'data-zh-placeholder': 'placeholder', 'data-zh-alt': 'alt', 'data-zh-src': 'src' };
+  var ATTRS = { 'data-zh-placeholder': 'placeholder', 'data-zh-alt': 'alt', 'data-zh-src': 'src', 'data-zh-href': 'href' };
   var titles = { en: 'Oriental Wisdom Clinic', zh: '茗仁中醫養生館' };
-  var nodes = document.querySelectorAll('[data-zh],[data-zh-placeholder],[data-zh-alt],[data-zh-src]');
+  var nodes = document.querySelectorAll('[data-zh],[data-zh-placeholder],[data-zh-alt],[data-zh-src],[data-zh-href]');
   var buttons = document.querySelectorAll('.lang-toggle button');
 
   // Remember the English version of everything once, so switching back is exact.
